@@ -63,10 +63,14 @@ def progress(current, total, message, type):
 
 
 # start command
+# @bot.on_message(filters.command(["start"]))
+# def send_start(client: pyrogram.client.Client, message: pyrogram.types.messages_and_media.message.Message):
+# 	bot.send_message(message.chat.id, f"__👋 Hi **{message.from_user.mention}**, I am Save Restricted Bot, I can send you restricted content by it's post link__\n\n{USAGE}",
+# 	reply_markup=InlineKeyboardMarkup([[ InlineKeyboardButton("🌐 Source Code", url="https://github.com/bipinkrish/Save-Restricted-Bot")]]), reply_to_message_id=message.id)
+
 @bot.on_message(filters.command(["start"]))
 def send_start(client: pyrogram.client.Client, message: pyrogram.types.messages_and_media.message.Message):
-	bot.send_message(message.chat.id, f"__👋 Hi **{message.from_user.mention}**, I am Save Restricted Bot, I can send you restricted content by it's post link__\n\n{USAGE}",
-	reply_markup=InlineKeyboardMarkup([[ InlineKeyboardButton("🌐 Source Code", url="https://github.com/bipinkrish/Save-Restricted-Bot")]]), reply_to_message_id=message.id)
+	bot.send_message(message.chat.id, f"Bot Started!", reply_to_message_id=message.id)
 
 
 @bot.on_message(filters.text)
@@ -250,35 +254,35 @@ def get_message_type(msg: pyrogram.types.messages_and_media.message.Message):
 	except: pass
 
 
-USAGE = """**FOR PUBLIC CHATS**
+# USAGE = """**FOR PUBLIC CHATS**
 
-__just send post/s link__
+# __just send post/s link__
 
-**FOR PRIVATE CHATS**
+# **FOR PRIVATE CHATS**
 
-__first send invite link of the chat (unnecessary if the account of string session already member of the chat)
-then send post/s link__
+# __first send invite link of the chat (unnecessary if the account of string session already member of the chat)
+# then send post/s link__
 
-**FOR BOT CHATS**
+# **FOR BOT CHATS**
 
-__send link with '/b/', bot's username and message id, you might want to install some unofficial client to get the id like below__
+# __send link with '/b/', bot's username and message id, you might want to install some unofficial client to get the id like below__
 
-```
-https://t.me/b/botusername/4321
-```
+# ```
+# https://t.me/b/botusername/4321
+# ```
 
-**MULTI POSTS**
+# **MULTI POSTS**
 
-__send public/private posts link as explained above with formate "from - to" to send multiple messages like below__
+# __send public/private posts link as explained above with formate "from - to" to send multiple messages like below__
 
-```
-https://t.me/xxxx/1001-1010
+# ```
+# https://t.me/xxxx/1001-1010
 
-https://t.me/c/xxxx/101 - 120
-```
+# https://t.me/c/xxxx/101 - 120
+# ```
 
-__note that space in between doesn't matter__
-"""
+# __note that space in between doesn't matter__
+# """
 
 
 # infinty polling
